@@ -9444,13 +9444,13 @@ int32_t lsm6dso32_sh_data_rate_set(stmdev_ctx_t *ctx,
 
   if (ret == 0)
   {
-    ret = lsm6dso32_read_reg(ctx, LSM6DSO32_SLV1_CONFIG, (uint8_t *)&reg, 1);
+    ret = lsm6dso32_read_reg(ctx, LSM6DSO32_SLV0_CONFIG, (uint8_t *)&reg, 1);
   }
 
   if (ret == 0)
   {
     reg.shub_odr = (uint8_t)val;
-    ret = lsm6dso32_write_reg(ctx, LSM6DSO32_SLV1_CONFIG, (uint8_t *)&reg, 1);
+    ret = lsm6dso32_write_reg(ctx, LSM6DSO32_SLV0_CONFIG, (uint8_t *)&reg, 1);
   }
 
   if (ret == 0)
@@ -9479,7 +9479,7 @@ int32_t lsm6dso32_sh_data_rate_get(stmdev_ctx_t *ctx,
 
   if (ret == 0)
   {
-    ret = lsm6dso32_read_reg(ctx, LSM6DSO32_SLV1_CONFIG, (uint8_t *)&reg, 1);
+    ret = lsm6dso32_read_reg(ctx, LSM6DSO32_SLV0_CONFIG, (uint8_t *)&reg, 1);
   }
 
   if (ret == 0)
