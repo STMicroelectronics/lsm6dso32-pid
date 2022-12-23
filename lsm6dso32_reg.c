@@ -336,106 +336,108 @@ int32_t lsm6dso32_xl_data_rate_get(stmdev_ctx_t *ctx,
     ret = lsm6dso32_read_reg(ctx, LSM6DSO32_CTRL6_C, (uint8_t *) &ctrl6_c, 1);
   }
 
-  switch ((ctrl5_c.xl_ulp_en << 5) + (ctrl6_c.xl_hm_mode << 4) +
-          ctrl1_xl.odr_xl)
+  if (ret == 0)
   {
-    case LSM6DSO32_XL_ODR_OFF:
-      *val = LSM6DSO32_XL_ODR_OFF;
-      break;
+    switch ((ctrl5_c.xl_ulp_en << 5) + (ctrl6_c.xl_hm_mode << 4) +
+            ctrl1_xl.odr_xl)
+    {
+      case LSM6DSO32_XL_ODR_OFF:
+        *val = LSM6DSO32_XL_ODR_OFF;
+        break;
 
-    case LSM6DSO32_XL_ODR_6Hz5_LOW_PW:
-      *val = LSM6DSO32_XL_ODR_6Hz5_LOW_PW;
-      break;
+      case LSM6DSO32_XL_ODR_6Hz5_LOW_PW:
+        *val = LSM6DSO32_XL_ODR_6Hz5_LOW_PW;
+        break;
 
-    case LSM6DSO32_XL_ODR_12Hz5_LOW_PW:
-      *val = LSM6DSO32_XL_ODR_12Hz5_LOW_PW;
-      break;
+      case LSM6DSO32_XL_ODR_12Hz5_LOW_PW:
+        *val = LSM6DSO32_XL_ODR_12Hz5_LOW_PW;
+        break;
 
-    case LSM6DSO32_XL_ODR_26Hz_LOW_PW:
-      *val = LSM6DSO32_XL_ODR_26Hz_LOW_PW;
-      break;
+      case LSM6DSO32_XL_ODR_26Hz_LOW_PW:
+        *val = LSM6DSO32_XL_ODR_26Hz_LOW_PW;
+        break;
 
-    case LSM6DSO32_XL_ODR_52Hz_LOW_PW:
-      *val = LSM6DSO32_XL_ODR_52Hz_LOW_PW;
-      break;
+      case LSM6DSO32_XL_ODR_52Hz_LOW_PW:
+        *val = LSM6DSO32_XL_ODR_52Hz_LOW_PW;
+        break;
 
-    case LSM6DSO32_XL_ODR_104Hz_NORMAL_MD:
-      *val = LSM6DSO32_XL_ODR_104Hz_NORMAL_MD;
-      break;
+      case LSM6DSO32_XL_ODR_104Hz_NORMAL_MD:
+        *val = LSM6DSO32_XL_ODR_104Hz_NORMAL_MD;
+        break;
 
-    case LSM6DSO32_XL_ODR_208Hz_NORMAL_MD:
-      *val = LSM6DSO32_XL_ODR_208Hz_NORMAL_MD;
-      break;
+      case LSM6DSO32_XL_ODR_208Hz_NORMAL_MD:
+        *val = LSM6DSO32_XL_ODR_208Hz_NORMAL_MD;
+        break;
 
-    case LSM6DSO32_XL_ODR_12Hz5_HIGH_PERF:
-      *val = LSM6DSO32_XL_ODR_12Hz5_HIGH_PERF;
-      break;
+      case LSM6DSO32_XL_ODR_12Hz5_HIGH_PERF:
+        *val = LSM6DSO32_XL_ODR_12Hz5_HIGH_PERF;
+        break;
 
-    case LSM6DSO32_XL_ODR_26Hz_HIGH_PERF:
-      *val = LSM6DSO32_XL_ODR_26Hz_HIGH_PERF;
-      break;
+      case LSM6DSO32_XL_ODR_26Hz_HIGH_PERF:
+        *val = LSM6DSO32_XL_ODR_26Hz_HIGH_PERF;
+        break;
 
-    case LSM6DSO32_XL_ODR_52Hz_HIGH_PERF:
-      *val = LSM6DSO32_XL_ODR_52Hz_HIGH_PERF;
-      break;
+      case LSM6DSO32_XL_ODR_52Hz_HIGH_PERF:
+        *val = LSM6DSO32_XL_ODR_52Hz_HIGH_PERF;
+        break;
 
-    case LSM6DSO32_XL_ODR_104Hz_HIGH_PERF:
-      *val = LSM6DSO32_XL_ODR_104Hz_HIGH_PERF;
-      break;
+      case LSM6DSO32_XL_ODR_104Hz_HIGH_PERF:
+        *val = LSM6DSO32_XL_ODR_104Hz_HIGH_PERF;
+        break;
 
-    case LSM6DSO32_XL_ODR_208Hz_HIGH_PERF:
-      *val = LSM6DSO32_XL_ODR_208Hz_HIGH_PERF;
-      break;
+      case LSM6DSO32_XL_ODR_208Hz_HIGH_PERF:
+        *val = LSM6DSO32_XL_ODR_208Hz_HIGH_PERF;
+        break;
 
-    case LSM6DSO32_XL_ODR_417Hz_HIGH_PERF:
-      *val = LSM6DSO32_XL_ODR_417Hz_HIGH_PERF;
-      break;
+      case LSM6DSO32_XL_ODR_417Hz_HIGH_PERF:
+        *val = LSM6DSO32_XL_ODR_417Hz_HIGH_PERF;
+        break;
 
-    case LSM6DSO32_XL_ODR_833Hz_HIGH_PERF:
-      *val = LSM6DSO32_XL_ODR_833Hz_HIGH_PERF;
-      break;
+      case LSM6DSO32_XL_ODR_833Hz_HIGH_PERF:
+        *val = LSM6DSO32_XL_ODR_833Hz_HIGH_PERF;
+        break;
 
-    case LSM6DSO32_XL_ODR_1667Hz_HIGH_PERF:
-      *val = LSM6DSO32_XL_ODR_1667Hz_HIGH_PERF;
-      break;
+      case LSM6DSO32_XL_ODR_1667Hz_HIGH_PERF:
+        *val = LSM6DSO32_XL_ODR_1667Hz_HIGH_PERF;
+        break;
 
-    case LSM6DSO32_XL_ODR_3333Hz_HIGH_PERF:
-      *val = LSM6DSO32_XL_ODR_3333Hz_HIGH_PERF;
-      break;
+      case LSM6DSO32_XL_ODR_3333Hz_HIGH_PERF:
+        *val = LSM6DSO32_XL_ODR_3333Hz_HIGH_PERF;
+        break;
 
-    case LSM6DSO32_XL_ODR_6667Hz_HIGH_PERF:
-      *val = LSM6DSO32_XL_ODR_6667Hz_HIGH_PERF;
-      break;
+      case LSM6DSO32_XL_ODR_6667Hz_HIGH_PERF:
+        *val = LSM6DSO32_XL_ODR_6667Hz_HIGH_PERF;
+        break;
 
-    case LSM6DSO32_XL_ODR_6Hz5_ULTRA_LOW_PW:
-      *val = LSM6DSO32_XL_ODR_6Hz5_ULTRA_LOW_PW;
-      break;
+      case LSM6DSO32_XL_ODR_6Hz5_ULTRA_LOW_PW:
+        *val = LSM6DSO32_XL_ODR_6Hz5_ULTRA_LOW_PW;
+        break;
 
-    case LSM6DSO32_XL_ODR_12Hz5_ULTRA_LOW_PW:
-      *val = LSM6DSO32_XL_ODR_12Hz5_ULTRA_LOW_PW;
-      break;
+      case LSM6DSO32_XL_ODR_12Hz5_ULTRA_LOW_PW:
+        *val = LSM6DSO32_XL_ODR_12Hz5_ULTRA_LOW_PW;
+        break;
 
-    case LSM6DSO32_XL_ODR_26Hz_ULTRA_LOW_PW:
-      *val = LSM6DSO32_XL_ODR_26Hz_ULTRA_LOW_PW;
-      break;
+      case LSM6DSO32_XL_ODR_26Hz_ULTRA_LOW_PW:
+        *val = LSM6DSO32_XL_ODR_26Hz_ULTRA_LOW_PW;
+        break;
 
-    case LSM6DSO32_XL_ODR_52Hz_ULTRA_LOW_PW:
-      *val = LSM6DSO32_XL_ODR_52Hz_ULTRA_LOW_PW;
-      break;
+      case LSM6DSO32_XL_ODR_52Hz_ULTRA_LOW_PW:
+        *val = LSM6DSO32_XL_ODR_52Hz_ULTRA_LOW_PW;
+        break;
 
-    case LSM6DSO32_XL_ODR_104Hz_ULTRA_LOW_PW:
-      *val = LSM6DSO32_XL_ODR_104Hz_ULTRA_LOW_PW;
-      break;
+      case LSM6DSO32_XL_ODR_104Hz_ULTRA_LOW_PW:
+        *val = LSM6DSO32_XL_ODR_104Hz_ULTRA_LOW_PW;
+        break;
 
-    case LSM6DSO32_XL_ODR_208Hz_ULTRA_LOW_PW:
-      *val = LSM6DSO32_XL_ODR_208Hz_ULTRA_LOW_PW;
-      break;
+      case LSM6DSO32_XL_ODR_208Hz_ULTRA_LOW_PW:
+        *val = LSM6DSO32_XL_ODR_208Hz_ULTRA_LOW_PW;
+        break;
 
-    default:
-      *val = LSM6DSO32_XL_ODR_OFF;
-      break;
+      default:
+        *val = LSM6DSO32_XL_ODR_OFF;
+        break;
+    }
   }
-
   return ret;
 }
 
@@ -579,76 +581,78 @@ int32_t lsm6dso32_gy_data_rate_get(stmdev_ctx_t *ctx,
   {
     ret = lsm6dso32_read_reg(ctx, LSM6DSO32_CTRL2_G, (uint8_t *)&ctrl2_g, 1);
   }
-
-  switch ((ctrl7_g.g_hm_mode << 4) + ctrl2_g.odr_g)
+  if (ret == 0)
   {
-    case LSM6DSO32_GY_ODR_OFF:
-      *val = LSM6DSO32_GY_ODR_OFF;
-      break;
+    switch ((ctrl7_g.g_hm_mode << 4) + ctrl2_g.odr_g)
+    {
+      case LSM6DSO32_GY_ODR_OFF:
+        *val = LSM6DSO32_GY_ODR_OFF;
+        break;
 
-    case LSM6DSO32_GY_ODR_12Hz5_HIGH_PERF:
-      *val = LSM6DSO32_GY_ODR_12Hz5_HIGH_PERF;
-      break;
+      case LSM6DSO32_GY_ODR_12Hz5_HIGH_PERF:
+        *val = LSM6DSO32_GY_ODR_12Hz5_HIGH_PERF;
+        break;
 
-    case LSM6DSO32_GY_ODR_26Hz_HIGH_PERF:
-      *val = LSM6DSO32_GY_ODR_26Hz_HIGH_PERF;
-      break;
+      case LSM6DSO32_GY_ODR_26Hz_HIGH_PERF:
+        *val = LSM6DSO32_GY_ODR_26Hz_HIGH_PERF;
+        break;
 
-    case LSM6DSO32_GY_ODR_52Hz_HIGH_PERF:
-      *val = LSM6DSO32_GY_ODR_52Hz_HIGH_PERF;
-      break;
+      case LSM6DSO32_GY_ODR_52Hz_HIGH_PERF:
+        *val = LSM6DSO32_GY_ODR_52Hz_HIGH_PERF;
+        break;
 
-    case LSM6DSO32_GY_ODR_104Hz_HIGH_PERF:
-      *val = LSM6DSO32_GY_ODR_104Hz_HIGH_PERF;
-      break;
+      case LSM6DSO32_GY_ODR_104Hz_HIGH_PERF:
+        *val = LSM6DSO32_GY_ODR_104Hz_HIGH_PERF;
+        break;
 
-    case LSM6DSO32_GY_ODR_208Hz_HIGH_PERF:
-      *val = LSM6DSO32_GY_ODR_208Hz_HIGH_PERF;
-      break;
+      case LSM6DSO32_GY_ODR_208Hz_HIGH_PERF:
+        *val = LSM6DSO32_GY_ODR_208Hz_HIGH_PERF;
+        break;
 
-    case LSM6DSO32_GY_ODR_417Hz_HIGH_PERF:
-      *val = LSM6DSO32_GY_ODR_417Hz_HIGH_PERF;
-      break;
+      case LSM6DSO32_GY_ODR_417Hz_HIGH_PERF:
+        *val = LSM6DSO32_GY_ODR_417Hz_HIGH_PERF;
+        break;
 
-    case LSM6DSO32_GY_ODR_833Hz_HIGH_PERF:
-      *val = LSM6DSO32_GY_ODR_833Hz_HIGH_PERF;
-      break;
+      case LSM6DSO32_GY_ODR_833Hz_HIGH_PERF:
+        *val = LSM6DSO32_GY_ODR_833Hz_HIGH_PERF;
+        break;
 
-    case LSM6DSO32_GY_ODR_1667Hz_HIGH_PERF:
-      *val = LSM6DSO32_GY_ODR_1667Hz_HIGH_PERF;
-      break;
+      case LSM6DSO32_GY_ODR_1667Hz_HIGH_PERF:
+        *val = LSM6DSO32_GY_ODR_1667Hz_HIGH_PERF;
+        break;
 
-    case LSM6DSO32_GY_ODR_3333Hz_HIGH_PERF:
-      *val = LSM6DSO32_GY_ODR_3333Hz_HIGH_PERF;
-      break;
+      case LSM6DSO32_GY_ODR_3333Hz_HIGH_PERF:
+        *val = LSM6DSO32_GY_ODR_3333Hz_HIGH_PERF;
+        break;
 
-    case LSM6DSO32_GY_ODR_6667Hz_HIGH_PERF:
-      *val = LSM6DSO32_GY_ODR_6667Hz_HIGH_PERF;
-      break;
+      case LSM6DSO32_GY_ODR_6667Hz_HIGH_PERF:
+        *val = LSM6DSO32_GY_ODR_6667Hz_HIGH_PERF;
+        break;
 
-    case LSM6DSO32_GY_ODR_104Hz_NORMAL_MD:
-      *val = LSM6DSO32_GY_ODR_104Hz_NORMAL_MD;
-      break;
+      case LSM6DSO32_GY_ODR_104Hz_NORMAL_MD:
+        *val = LSM6DSO32_GY_ODR_104Hz_NORMAL_MD;
+        break;
 
-    case LSM6DSO32_GY_ODR_208Hz_NORMAL_MD:
-      *val = LSM6DSO32_GY_ODR_208Hz_NORMAL_MD;
-      break;
+      case LSM6DSO32_GY_ODR_208Hz_NORMAL_MD:
+        *val = LSM6DSO32_GY_ODR_208Hz_NORMAL_MD;
+        break;
 
-    case LSM6DSO32_GY_ODR_12Hz5_LOW_PW:
-      *val = LSM6DSO32_GY_ODR_12Hz5_LOW_PW;
-      break;
+      case LSM6DSO32_GY_ODR_12Hz5_LOW_PW:
+        *val = LSM6DSO32_GY_ODR_12Hz5_LOW_PW;
+        break;
 
-    case LSM6DSO32_GY_ODR_26Hz_LOW_PW:
-      *val = LSM6DSO32_GY_ODR_26Hz_LOW_PW;
-      break;
+      case LSM6DSO32_GY_ODR_26Hz_LOW_PW:
+        *val = LSM6DSO32_GY_ODR_26Hz_LOW_PW;
+        break;
 
-    case LSM6DSO32_GY_ODR_52Hz_LOW_PW:
-      *val = LSM6DSO32_GY_ODR_52Hz_LOW_PW;
-      break;
+      case LSM6DSO32_GY_ODR_52Hz_LOW_PW:
+        *val = LSM6DSO32_GY_ODR_52Hz_LOW_PW;
+        break;
 
-    default:
-      *val = LSM6DSO32_GY_ODR_OFF;
-      break;
+      default:
+        *val = LSM6DSO32_GY_ODR_OFF;
+        break;
+    }
   }
 
   return ret;
@@ -7021,11 +7025,11 @@ int32_t lsm6dso32_pedo_sens_get(stmdev_ctx_t *ctx,
   {
     ret = lsm6dso32_mem_bank_set(ctx, LSM6DSO32_USER_BANK);
   }
-
-  switch ((pedo_cmd_reg.ad_det_en << 5) | (pedo_cmd_reg.fp_rejection_en
-                                           << 4) |
-          (emb_func_en_b.pedo_adv_en << 1) | emb_func_en_a.pedo_en)
+  if (ret == 0)
   {
+    switch ((pedo_cmd_reg.ad_det_en << 5) | (pedo_cmd_reg.fp_rejection_en << 4) |
+            (emb_func_en_b.pedo_adv_en << 1) | emb_func_en_a.pedo_en)
+    {
     case LSM6DSO32_PEDO_DISABLE:
       *val = LSM6DSO32_PEDO_DISABLE;
       break;
@@ -7049,8 +7053,8 @@ int32_t lsm6dso32_pedo_sens_get(stmdev_ctx_t *ctx,
     default:
       *val = LSM6DSO32_PEDO_DISABLE;
       break;
+    }
   }
-
   return ret;
 }
 
@@ -7859,18 +7863,21 @@ int32_t lsm6dso32_mag_soft_iron_get(stmdev_ctx_t *ctx, int16_t *val)
                                     &buff[index]);
   }
 
-  val[0] = (int16_t)buff[1];
-  val[0] = (val[0] * 256) + (int16_t)buff[0];
-  val[1] = (int16_t)buff[3];
-  val[1] = (val[1] * 256) + (int16_t)buff[2];
-  val[2] = (int16_t)buff[5];
-  val[2] = (val[2] * 256) + (int16_t)buff[4];
-  val[3] = (int16_t)buff[7];
-  val[3] = (val[3] * 256) + (int16_t)buff[6];
-  val[4] = (int16_t)buff[9];
-  val[4] = (val[4] * 256) + (int16_t)buff[8];
-  val[5] = (int16_t)buff[11];
-  val[5] = (val[5] * 256) + (int16_t)buff[10];
+  if (ret == 0)
+  {
+    val[0] = (int16_t)buff[1];
+    val[0] = (val[0] * 256) + (int16_t)buff[0];
+    val[1] = (int16_t)buff[3];
+    val[1] = (val[1] * 256) + (int16_t)buff[2];
+    val[2] = (int16_t)buff[5];
+    val[2] = (val[2] * 256) + (int16_t)buff[4];
+    val[3] = (int16_t)buff[7];
+    val[3] = (val[3] * 256) + (int16_t)buff[6];
+    val[4] = (int16_t)buff[9];
+    val[4] = (val[4] * 256) + (int16_t)buff[8];
+    val[5] = (int16_t)buff[11];
+    val[5] = (val[5] * 256) + (int16_t)buff[10];
+  }
 
   return ret;
 }
