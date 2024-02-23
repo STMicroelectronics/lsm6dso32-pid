@@ -2677,7 +2677,7 @@ typedef enum
   /* Accelerometer power off */
   LSM6DSO32_XL_ODR_OFF                     = 0x00,
   /* Accelerometer low power mode */
-  LSM6DSO32_XL_ODR_6Hz5_LOW_PW             = 0x1B,
+  LSM6DSO32_XL_ODR_1Hz6_LOW_PW             = 0x1B,
   LSM6DSO32_XL_ODR_12Hz5_LOW_PW            = 0x11,
   LSM6DSO32_XL_ODR_26Hz_LOW_PW             = 0x12,
   LSM6DSO32_XL_ODR_52Hz_LOW_PW             = 0x13,
@@ -2699,7 +2699,7 @@ typedef enum
    * WARNING: Gyroscope must be in Power-Down mode when
    *          accelerometer is in ultra low power mode.
    */
-  LSM6DSO32_XL_ODR_6Hz5_ULTRA_LOW_PW       = 0x2B,
+  LSM6DSO32_XL_ODR_1Hz6_ULTRA_LOW_PW       = 0x2B,
   LSM6DSO32_XL_ODR_12Hz5_ULTRA_LOW_PW      = 0x21,
   LSM6DSO32_XL_ODR_26Hz_ULTRA_LOW_PW       = 0x22,
   LSM6DSO32_XL_ODR_52Hz_ULTRA_LOW_PW       = 0x23,
