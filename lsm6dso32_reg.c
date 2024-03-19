@@ -347,8 +347,8 @@ int32_t lsm6dso32_xl_data_rate_get(const stmdev_ctx_t *ctx,
       *val = LSM6DSO32_XL_ODR_OFF;
       break;
 
-    case LSM6DSO32_XL_ODR_6Hz5_LOW_PW:
-      *val = LSM6DSO32_XL_ODR_6Hz5_LOW_PW;
+    case LSM6DSO32_XL_ODR_1Hz6_LOW_PW:
+      *val = LSM6DSO32_XL_ODR_1Hz6_LOW_PW;
       break;
 
     case LSM6DSO32_XL_ODR_12Hz5_LOW_PW:
@@ -411,8 +411,8 @@ int32_t lsm6dso32_xl_data_rate_get(const stmdev_ctx_t *ctx,
       *val = LSM6DSO32_XL_ODR_6667Hz_HIGH_PERF;
       break;
 
-    case LSM6DSO32_XL_ODR_6Hz5_ULTRA_LOW_PW:
-      *val = LSM6DSO32_XL_ODR_6Hz5_ULTRA_LOW_PW;
+    case LSM6DSO32_XL_ODR_1Hz6_ULTRA_LOW_PW:
+      *val = LSM6DSO32_XL_ODR_1Hz6_ULTRA_LOW_PW;
       break;
 
     case LSM6DSO32_XL_ODR_12Hz5_ULTRA_LOW_PW:
