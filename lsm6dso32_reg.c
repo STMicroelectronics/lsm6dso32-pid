@@ -3726,18 +3726,6 @@ int32_t lsm6dso32_int_notification_get(const stmdev_ctx_t *ctx,
     }
   }
 
-  if (ret == 0)
-  {
-    ret = lsm6dso32_mem_bank_set(ctx, LSM6DSO32_EMBEDDED_FUNC_BANK);
-
-    if (ret == 0)
-    {
-      ret = lsm6dso32_read_reg(ctx, LSM6DSO32_PAGE_RW, (uint8_t *) &page_rw, 1);
-    }
-
-    ret += lsm6dso32_mem_bank_set(ctx, LSM6DSO32_USER_BANK);
-  }
-
   return ret;
 }
 
