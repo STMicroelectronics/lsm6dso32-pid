@@ -245,7 +245,6 @@ int32_t lsm6dso32_xl_data_rate_set(const stmdev_ctx_t *ctx,
   lsm6dso32_ctrl1_xl_t ctrl1_xl;
   lsm6dso32_ctrl5_c_t ctrl5_c;
   lsm6dso32_ctrl6_c_t ctrl6_c;
-  lsm6dso32_func_cfg_access_t func_cfg_access;
   int32_t ret;
 
   ret = lsm6dso32_read_reg(ctx, LSM6DSO32_CTRL1_XL,
@@ -256,12 +255,6 @@ int32_t lsm6dso32_xl_data_rate_set(const stmdev_ctx_t *ctx,
     ctrl1_xl.odr_xl = (uint8_t) LSM6DSO32_XL_ODR_OFF & 0x0FU;
     ret = lsm6dso32_write_reg(ctx, LSM6DSO32_CTRL1_XL,
                               (uint8_t *)&ctrl1_xl, 1);
-  }
-
-  if (ret == 0)
-  {
-    ret = lsm6dso32_read_reg(ctx, LSM6DSO32_FUNC_CFG_ACCESS,
-                             (uint8_t *)&func_cfg_access, 1);
   }
 
   if (ret == 0)
@@ -319,13 +312,10 @@ int32_t lsm6dso32_xl_data_rate_get(const stmdev_ctx_t *ctx,
   lsm6dso32_ctrl1_xl_t ctrl1_xl;
   lsm6dso32_ctrl5_c_t ctrl5_c;
   lsm6dso32_ctrl6_c_t ctrl6_c;
-  lsm6dso32_func_cfg_access_t func_cfg_access;
   int32_t ret;
 
   ret = lsm6dso32_read_reg(ctx, LSM6DSO32_CTRL1_XL,
                            (uint8_t *)&ctrl1_xl, 1);
-  ret += lsm6dso32_read_reg(ctx, LSM6DSO32_FUNC_CFG_ACCESS,
-                           (uint8_t *)&func_cfg_access, 1);
   ret += lsm6dso32_read_reg(ctx, LSM6DSO32_CTRL5_C, (uint8_t *) &ctrl5_c, 1);
   ret += lsm6dso32_read_reg(ctx, LSM6DSO32_CTRL6_C, (uint8_t *) &ctrl6_c, 1);
 
